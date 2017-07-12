@@ -11,4 +11,6 @@ app.use(express.static(__dirname + '/public'));
 
 require("./test/app");
 
-app.listen(3000);
+// Use heroku PORT if it is present in the environment.
+var port = process.env.PORT || 3000;
+app.listen(port);
