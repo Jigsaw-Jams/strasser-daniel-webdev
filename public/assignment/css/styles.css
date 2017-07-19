@@ -1,0 +1,152 @@
+/*
+ *  My Styles (prefixed with `dj-`)
+ */
+
+
+/****** NAVBAR *******/
+/* https://work.smarchal.com/twbscolor/3.3.6/css/4c5769ceced1ecf0f18188940 */
+.navbar-default {
+    background-color: #4c5769;
+    border-color: #ceced1;
+}
+.navbar-default .navbar-brand {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #818894;
+}
+.navbar-default .navbar-text {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #818894;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #818894;
+    background-color: #ceced1;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #818894;
+    background-color: #ceced1;
+}
+.navbar-default .navbar-toggle {
+    border-color: #ceced1;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #ceced1;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+    color: #818894;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #818894;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #818894;
+        background-color: #ceced1;
+    }
+}
+/** My additional navbar edits **/
+.dj-navbar-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/****** LOGIN & REGISTER ********/
+.dj-login-register-body {
+    background-color: #CECED1;
+    color: #204d74;
+    font-family: 'Roboto', sans-serif;
+}
+.dj-login-register-body .btn {
+    margin-bottom: 10px;
+}
+.dj-login-register-body a {
+    color:#2c3e50;
+}
+
+
+/* fixed navbar requires this */
+body {
+    padding-top : 60px;
+    padding-bottom : 60px;
+}
+
+
+.dj-active {
+    background-color: #4c5769;
+    color: #ffffff;
+}
+.dj-active .glyphicon {
+    color: #ffffff;
+}
+a:hover{
+    text-decoration: none;
+}
+
+/*
+Bootstrap button outline override
+This is a Bootstrap 4 feature. I found an implementation on stack-overflow
+Credits: https://stackoverflow.com/questions/37095575/bootstrap-button-outline-not-working
+*/
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
