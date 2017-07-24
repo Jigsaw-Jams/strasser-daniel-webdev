@@ -1,3 +1,5 @@
-/**
- * Created by dj on 7/23/17.
- */
+(function () {
+    // Declaration of our own module and ngRoute dependency
+    var app = angular.
+    module("WebAppMaker", ["ngRoute"]);
+})();
