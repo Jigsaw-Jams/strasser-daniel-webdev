@@ -72,11 +72,21 @@
         <div class="col-xs-12 col-sm-9 pull-right">
             <div class="form-group">
                 <label for="website-name">Name:</label>
-                <input type="text" class="form-control" id="website-name" name="website-name" placeholder="Name (Fakebook)">
+                <input ng-model="model.website.name"
+                       type="text"
+                       class="form-control"
+                       id="website-name"
+                       name="website-name"
+                       placeholder="Name (Fakebook)">
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea class="form-control" rows="5" id="description" name="description"></textarea>
+                <textarea ng-model="model.website.description"
+                          class="form-control"
+                          rows="5"
+                          id="description"
+                          name="description">
+                </textarea>
             </div>
             <a href="#!/website-list" class="btn btn-danger btn-outline btn-block dj-btn">Delete</a>
         </div>
