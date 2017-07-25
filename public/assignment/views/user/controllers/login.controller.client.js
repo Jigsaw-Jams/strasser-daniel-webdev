@@ -3,8 +3,12 @@
         .module("WebAppMaker")
         .controller("LoginController", LoginController);
 
-        function LoginController($location) {
+        function LoginController($location, UserService) {
             var model = this;
+
+            function init() {
+            }
+            init();
         }
 
 })();

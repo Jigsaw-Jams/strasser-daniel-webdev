@@ -13,7 +13,7 @@
 
         var api = {
             "createPage" : createPage,
-            "findPageByWebsiteId" : findPageByWebsiteId,
+            "findPagesByWebsiteId" : findPagesByWebsiteId,
             "findPageById" : findPageById,
             "updatePage" : updatePage,
             "deletePage" : deletePage
@@ -34,14 +34,15 @@
         /**
          * Retrieves the pages in local pages array whose websiteId matches the parameter websiteId
          */
-        function findPageByWebsiteId(websiteId) {
+        function findPagesByWebsiteId(websiteId) {
+            var _pages = [];
             for (var p in pages) {
                 var _page = pages[p];
                 if(_page.websiteId === websiteId) {
-                    return _page;
+                    _pages.push(_page);
                 }
             }
-            return null;
+            return _pages;
         }
 
         /**

@@ -3,11 +3,14 @@
         .module("WebAppMaker")
         .controller("ProfileController", ProfileController);
 
-    function ProfileController($location) {
+    function ProfileController($routeParams, UserService) {
         var model = this;
-        var model.userId = $routeParams["userId"];
+        model.userId = $routeParams["userId"];
 
-
+        function init() {
+            model.user = UserService.findUserById(model.userId);
+        }
+        init();
 
     }
 

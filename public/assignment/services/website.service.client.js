@@ -38,13 +38,15 @@
          * Retrieves the websites in local websites array whose developerId matches the parameter userId
          */
         function findWebsitesByUser(userId) {
+            var users_websites = [];
             for (var w in websites) {
                 var _website = websites[w];
                 if(_website.developerId === userId) {
+                    users_websites.push(_website);
                     return _website;
                 }
             }
-            return null;
+            return users_websites;
         }
 
         /**
