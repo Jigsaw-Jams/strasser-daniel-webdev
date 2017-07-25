@@ -54,6 +54,7 @@
             for (var w in widgets) {
                 var _widget = widgets[w];
                 if(_widget._id === widgetId) {
+                    console.log(_widget);
                     return _widget;
                 }
             }
