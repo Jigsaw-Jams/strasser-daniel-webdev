@@ -10,6 +10,8 @@
         model.pid = $routeParams["pid"];
         model.wgid = $routeParams["wgid"];
         model.updateWidget = updateWidget;
+        model.deleteWidget= deleteWidget;
+
         function init() {
             model.widget = WidgetService.findWidgetById(model.wgid);
         }
@@ -26,6 +28,10 @@
             } else {
                 console.log('yarg');
             }
+        }
+
+        function deleteWidget() {
+            WidgetService.deleteWidget(model.wgid);
         }
     }
 

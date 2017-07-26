@@ -24,7 +24,7 @@
             <div ng-include src="'./views/widget/templates/widget-youtube-edit.view.client.html'"></div>
         </div>
     </div>
-    <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget" class="btn btn-danger btn-outline btn-block dj-btn">Delete</a>
+    <a ng-click="model.deleteWidget()" class="btn btn-danger btn-outline btn-block dj-btn">Delete</a>
 </div>
 
 
