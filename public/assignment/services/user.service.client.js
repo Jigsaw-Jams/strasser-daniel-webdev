@@ -38,6 +38,7 @@
             for (var u in users) {
                 var _user = users[u];
                 if(_user._id === userId) {
+                    console.log(_user);
                     return _user;
                 }
             }
@@ -69,10 +70,11 @@
                 var _user = users[u];
                 if(_user._id === userId) {
                     _user = user; // set the outdated user to the definition of the updated user
+                    console.log(_user);
                     return _user
                 }
             }
-            return null
+            return null;
         }
 
         /**

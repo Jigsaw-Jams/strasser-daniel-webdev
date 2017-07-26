@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <ul class="nav navbar-nav pull-left">
-                <li><a href="#!/page-list"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
+                <li><a href="#!/user/{{model.userId}}/website/{{model.wid}}/page"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
             </ul>
-            <a class="navbar-brand" href="website-new.html.html">New Page</a>
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.wid}}/page/new">New Page</a>
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#!/page-list"><span class="dj-navbar-icon pull-right glyphicon glyphicon-ok"></span></a></li>
+                <li><a ng-click="model.createPage(model.page)"><span class="dj-navbar-icon pull-right glyphicon glyphicon-ok"></span></a></li>
             </ul>
         </div>
     </div>
@@ -26,13 +26,13 @@
                        placeholder="Page Name">
             </div>
             <div class="form-group">
-                <label for="page-title">Title:</label>
-                <input ng-model="model.page.title"
+                <label for="page-description">Description:</label>
+                <input ng-model="model.page.description"
                        type="text"
                        class="form-control"
-                       id="page-title"
-                       name="page-title"
-                       placeholder="page-title">
+                       id="page-description"
+                       name="page-description"
+                       placeholder="page-description">
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand pull-right" href="#!/user">
+        <a class="navbar-brand pull-right" href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>

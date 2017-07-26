@@ -1,15 +1,17 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#!/user">Profile</a>
+        <a class="navbar-brand" href="#!/user/{{model.userId}}">Profile</a>
         <ul class="nav navbar-nav pull-right">
             <li>
-                <a href="#!/user"><span class="dj-navbar-icon pull-right glyphicon glyphicon-ok"></span></a>
+                <a ng-click="model.updateUser(model.user)" ><span class="dj-navbar-icon pull-right glyphicon glyphicon-ok"></span></a>
             </li>
         </ul>
     </div>
 </nav>
 
 <div class="container-fluid">
+    <div ng-show="model.success" class="alert alert-success"> <strong>{{model.success}}</strong> </div>
+
     <div class="form-group">
         <label for="username">Username</label>
         <input ng-model="model.user.username"
@@ -43,14 +45,14 @@
                name="last-name">
     </div>
 
-    <a href="#!/website-list" class="btn btn-primary btn-outline btn-block dj-btn">Websites</a>
+    <a href="#!/user/{{model.userId}}/website" class="btn btn-primary btn-outline btn-block dj-btn">Websites</a>
     <a href="#!/login" class="btn btn-danger btn-outline btn-block dj-btn">Logout</a>
 </div>
 
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand pull-right" href="#!/user">
+        <a class="navbar-brand pull-right" href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>

@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <ul class="nav navbar-nav pull-left">
-                <li><a href="#!/page-list"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
+                <li><a href="#!/user/{{model.userId}}/website/{{model.wid}}/page"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
             </ul>
             <a class="navbar-brand" href="website-new.html.html">Edit Page</a>
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#!/page-list"><span class="dj-navbar-icon pull-right glyphicon glyphicon-ok"></span></a></li>
+                <li><a ng-click="model.updatePage(model.page)"><span class="dj-navbar-icon pull-right glyphicon glyphicon-ok"></span></a></li>
             </ul>
         </div>
     </div>
@@ -14,6 +14,9 @@
 
 
 <div class="container-fluid">
+    <div ng-show="model.success" class="alert alert-success"> <strong>{{model.success}}</strong> </div>
+    <div ng-show="model.delete" class="alert alert-warning"> <strong>{{model.delete}}</strong> </div>
+
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
@@ -32,14 +35,14 @@
                        id="page-description"
                        name="page-description">
             </div>
-            <a href="#!/page-list" class="btn btn-danger btn-outline btn-block dj-btn">Delete</a>
+            <a ng-click="model.deletePage(model.page)" class="btn btn-danger btn-outline btn-block dj-btn">Delete</a>
         </div>
     </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand pull-right" href="#!/user">
+        <a class="navbar-brand pull-right" href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>

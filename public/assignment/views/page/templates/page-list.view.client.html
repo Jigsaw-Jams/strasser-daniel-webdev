@@ -1,13 +1,12 @@
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="row">
             <ul class="nav navbar-nav pull-left">
-                <li><a href="#!/website-list"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
+                <li><a href="#!/user/{{model.userId}}/website/"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
             </ul>
-            <a class="navbar-brand" href="#!/page-list">Pages</a>
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.wid}}/page">{{model.website.name}} Pages</a>
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#!/page-new"><span class="dj-navbar-icon pull-right glyphicon glyphicon-plus"></span></a></li>
+                <li><a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/new"><span class="dj-navbar-icon pull-right glyphicon glyphicon-plus"></span></a></li>
             </ul>
         </div>
     </div>
@@ -15,62 +14,26 @@
 
 
 <div class="container-fluid">
-
     <ul class="list-group">
-        <li class="list-group-item">
+        <div ng-show="!model.pages.length" class="alert alert-success">There are no pages on this website yet, click the plus to get going!</div>
+
+        <li ng-repeat="page in model.pages" class="list-group-item">
             <div class="row">
                 <div class="col-xs-8">
-                    <a href="#!/widget-list">Blog Post</a>
+                    <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{page._id}}/widget">{{page.name}}</a>
                 </div>
                 <div class="col-xs-4">
-                    <a href="#!/page-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="#!/widget-list">Blogs</a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="#!/page-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="#!/widget-list">Home</a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="#!/page-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="#!/widget-list">About</a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="#!/page-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
+                    <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{page._id}}"><span class="pull-right glyphicon glyphicon-cog"></span></a>
                 </div>
             </div>
         </li>
     </ul>
-
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand pull-right" href="#!/user">
+        <a class="navbar-brand pull-right" href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>
 </nav>
-
-
-
-
-
-

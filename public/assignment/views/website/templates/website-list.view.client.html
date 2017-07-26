@@ -2,11 +2,11 @@
     <div class="container-fluid">
         <div class="row">
             <ul class="nav navbar-nav pull-left">
-                <li><a href="#!/user"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
+                <li><a href="#!/user/{{model.userId}}"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
             </ul>
-            <a class="navbar-brand" href="website-list.html.html">Websites</a>
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website">Your Websites</a>
             <ul class="nav navbar-nav pull-right">
-                <li><a href="#!/website-new"><span class="dj-navbar-icon pull-right glyphicon glyphicon-plus"></span></a></li>
+                <li><a href="#!/user/{{model.userId}}/website/new"><span class="dj-navbar-icon pull-right glyphicon glyphicon-plus"></span></a></li>
             </ul>
         </div>
     </div>
@@ -16,43 +16,13 @@
 <div class="container-fluid">
 
     <ul class="list-group">
-        <li class="list-group-item">
+        <li ng-repeat="website in model.websites" class="list-group-item">
             <div class="row">
                 <div class="col-xs-8">
-                    <a href="#!/page-list">Address Book App</a>
+                    <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
                 </div>
                 <div class="col-xs-4">
-                    <a href="#!/website-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="#!/page-list">Blogger</a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="#!/website-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="#!/page-list">Bloggin App</a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="#!/website-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-8">
-                    <a href="#!/page-list">Script Testing App</a>
-                </div>
-                <div class="col-xs-4">
-                    <a href="#!/website-edit"><span class="pull-right glyphicon glyphicon-cog"></span></a>
+                    <a href="#!/user/{{model.userId}}/website/{{website._id}}"><span class="pull-right glyphicon glyphicon-cog"></span></a>
                 </div>
             </div>
         </li>
@@ -62,7 +32,7 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand pull-right" href="#!/user">
+        <a class="navbar-brand pull-right" href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>

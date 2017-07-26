@@ -2,12 +2,9 @@
     <div class="container-fluid">
         <div class="row">
             <ul class="nav navbar-nav pull-left">
-                <li><a href="#!/website-list"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
+                <li><a href="#!/user/{{model.userId}}/website/"><span class="dj-navbar-icon pull-right glyphicon glyphicon-arrow-left"></span></a></li>
             </ul>
-            <a class="navbar-brand" href="website-new.html.html">Edit Website</a>
-            <ul class="nav navbar-nav pull-right">
-                <li><a href="#!/website-list"><span class="dj-navbar-icon pull-right glyphicon glyphicon-ok"></span></a></li>
-            </ul>
+            <a class="navbar-brand" href="#!/user/{{model.userId}}/website/{{model.website._id}}">Edit Website</a>
         </div>
     </div>
 </nav>
@@ -23,50 +20,21 @@
                             <u>Websites</u>
                         </div>
                         <div class="col-xs-4">
-                            <a href="#!/website-new"><span class="pull-right avx glyphicon glyphicon-plus"></span></a>
+                            <a href="#!/user/{{model.userId}}/website/new"><span class="pull-right avx glyphicon glyphicon-plus"></span></a>
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item">
+                <li ng-repeat="website in model.websites" class="list-group-item">
                     <div class="row">
                         <div class="col-xs-8">
-                            Address Book App
+                            <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
                         </div>
                         <div class="col-xs-4">
-                            <span class="pull-right glyphicon glyphicon-cog"></span>
+                            <a href="#!/user/{{model.userId}}/website/{{website._id}}"><span class="pull-right glyphicon glyphicon-cog"></span></a>
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-8">
-                            Blogger
-                        </div>
-                        <div class="col-xs-4">
-                            <span class="pull-right glyphicon glyphicon-cog"></span>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-8">
-                            Blogging App
-                        </div>
-                        <div class="col-xs-4">
-                            <span class="pull-right glyphicon glyphicon-cog"></span>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-8">
-                            Script Testing App
-                        </div>
-                        <div class="col-xs-4">
-                            <span class="pull-right glyphicon glyphicon-cog"></span>
-                        </div>
-                    </div>
-                </li>
+
             </ul>
         </div>
         <div class="col-xs-12 col-sm-9 pull-right">
@@ -87,14 +55,18 @@
                           name="description">
                 </textarea>
             </div>
-            <a href="#!/website-list" class="btn btn-danger btn-outline btn-block dj-btn">Delete</a>
+            <button ng-click="model.updateWebsite(website)" class="btn btn-primary btn-outline btn-block dj-btn">Update</button>
+            <hr>
+            <p class="text-danger">WARNING: Only click delete if you are sure you would like to remove this website!</p>
+            <hr>
+            <button ng-click="model.deleteWebsite()" class="btn btn-danger btn-outline btn-block dj-btn">Delete</button>
         </div>
     </div>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
-        <a class="navbar-brand pull-right" href="#!/user">
+        <a class="navbar-brand pull-right" href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-user"></span>
         </a>
     </div>

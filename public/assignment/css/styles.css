@@ -1,7 +1,14 @@
 /*
  *  My Styles (prefixed with `dj-`)
  */
-
+body {
+    /* fixed navbar requires this */
+    padding-top : 60px;
+    padding-bottom : 60px;
+    /**/
+    color: #204d74;
+    font-family: 'Roboto', sans-serif;
+}
 
 /****** NAVBAR *******/
 /* https://work.smarchal.com/twbscolor/3.3.6/css/4c5769ceced1ecf0f18188940 */
@@ -80,25 +87,6 @@
     margin-right: 10px;
 }
 
-/****** LOGIN & REGISTER ********/
-.dj-login-register-body {
-    background-color: #CECED1;
-    color: #204d74;
-    font-family: 'Roboto', sans-serif;
-}
-.dj-login-register-body .btn {
-    margin-bottom: 10px;
-}
-.dj-login-register-body a {
-    color:#2c3e50;
-}
-
-
-/* fixed navbar requires this */
-body {
-    padding-top : 60px;
-    padding-bottom : 60px;
-}
 
 
 .dj-active {
@@ -108,6 +96,7 @@ body {
 .dj-active .glyphicon {
     color: #ffffff;
 }
+
 a:hover{
     text-decoration: none;
 }
@@ -149,4 +138,7 @@ Credits: https://stackoverflow.com/questions/37095575/bootstrap-button-outline-n
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
     color: #fff;
+}
+.btn {
+    margin-bottom: 10px;
 }
