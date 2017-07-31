@@ -87,7 +87,11 @@ body {
     margin-right: 10px;
 }
 
-
+.dj-above-footer {
+    position: fixed;
+    bottom: 60px;
+    width: 100%;
+}
 
 .dj-active {
     background-color: #4c5769;

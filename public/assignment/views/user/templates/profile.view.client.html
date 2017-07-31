@@ -10,7 +10,8 @@
 </nav>
 
 <div class="container-fluid">
-    <div ng-show="model.success" class="alert alert-success"> <strong>{{model.success}}</strong> </div>
+    <div ng-show="model.errorMessage" class="alert alert-danger"> <strong>{{model.errorMessage}}</strong> </div>
+    <div ng-show="model.successMessage" class="alert alert-success"> <strong>{{model.successMessage}}</strong> </div>
 
     <div class="form-group">
         <label for="username">Username</label>
@@ -49,6 +50,10 @@
     <a href="#!/login" class="btn btn-danger btn-outline btn-block dj-btn">Logout</a>
 </div>
 
+<div class="text-center dj-above-footer">
+    <p class="text-danger">This is the danger zone. Please proceed with caution...</p>
+    <button ng-click="model.deleteUser()" class="btn btn-danger btn-outline dj-btn">Delete Account</button>
+</div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">

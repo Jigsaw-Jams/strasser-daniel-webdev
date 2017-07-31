@@ -3,7 +3,7 @@
         .module("WebAppMaker")
         .controller("LoginController", LoginController);
 
-        function LoginController($location, UserService) {
+        function LoginController($location, $rootScope, UserService) {
             var model = this;
             model.login = login;
 
@@ -15,13 +15,17 @@
              */
             function login(user) {
                 if (user && user.username && user.password) {
-                    _user = UserService.findUserByCredentials(user.username, user.password);
-                    if (_user) {
-                        $location.url("/user/" + _user._id);
-                    }
-                    model.errorMessage = "You have entered an incorrect username or password. Please try again.";
+                    UserService.findUserByCredentials(user.username, user.password)
+                        .then(function (response) {
+                            var currentUser = response.data;
+                            $rootScope.currentUser = currentUser;
+                            $location.url('/user/' + currentUser._id);
+                        },    function (rejection) {
+                            model.errorMessage = "You have entered an incorrect username or password. Please try again.";
+                        });
                 }
             }
+
         }
 
 })();

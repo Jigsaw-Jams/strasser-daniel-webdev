@@ -3,34 +3,35 @@
         .module("WebAppMaker")
         .controller("RegisterController", RegisterController);
 
-    function RegisterController($location, $routeParams, UserService) {
+    function RegisterController($location, $routeParams, $rootScope, UserService) {
         var model = this;
         model.userId = $routeParams["userId"];
         model.wid = $routeParams["wid"];
         model.registerUser = registerUser;
 
 
-        function init() {
-        }
+        function init() {}
         init();
 
         function registerUser(user) {
-            if (UserService.findUserByUsername(user.username)){
-                model.errorMessage = "Sorry this username is taken, try again.";
-            }
-            // basic 8 char requirement
-            else if (user.password.length < 8) {
-                model.errorMessage = "Password must be at least 8 characters long, try again.";
-            }
-            else if (user.password != user.password2) {
-                model.errorMessage = "Sorry the passwords do not match up, try again";
-            } else {
-                delete user['password2'];
-                var new_user = UserService.createUser(user);
-                console.log('user created');
-                $location.url('/user/' + new_user._id);
-            }
+            UserService.findUserByUsername(user.username)
+                .then(function (response) { // user was found =  username is taken
+                    model.errorMessage = "Sorry this username is taken, try again.";
+                }, function (rejection) {   // user not found, ok to create new user with this username
+                    if (user.password != user.password2) {
+                        model.errorMessage = "Sorry the passwords do not match up, try again";
+                    } else {
+                        delete user['password2']; //  remove the duplicate password field before inserting object
+                        UserService.createUser(user)
+                            .then(function (response) { // success, user created and logged in as currentUser
+                                var newUser = response.data;
+                                $rootScope.currentUser = newUser;
+                                $location.url('/user/' + newUser._id);
+                            }, function (rejection) { // some issue with creating user
+                                model.errorMessage = "Sorry, we encountered an error on our end. Please try again in a moment.";
+                            });
+                    }
+                });
         }
     }
-
 })();
