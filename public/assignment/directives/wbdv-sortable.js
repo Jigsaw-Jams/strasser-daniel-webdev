@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("myDirectives", [])
+        .module("wbdvDirectives", [])
         .directive("widgetList", widgetListDirective); //html doesnt have case sensitive tags  // CAMEL CASE THINGS ARE MAPPED to item-list
 
 
@@ -11,6 +11,7 @@
             var endIndex = -1;
 
             var ul = element.find("ul");
+
             ul.sortable({
                 start: function(event, ui) {
                     startIndex = $(ui.item).index();
@@ -25,8 +26,8 @@
         }
 
         return {
-            templateUrl: "../views/widget/templates/widget-list",
+            templateUrl: "widget-list.html",
             link: linkFunction
-        } //each widget should be a directive
+        }
     }
 })();
