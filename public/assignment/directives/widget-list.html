@@ -1,1 +1,13 @@
-abc
+<div ng-repeat="widget in model.widgets" class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-xs-10"> {{widget.widgetType}} Widget </div>
+            <div class="col-xs-2">
+                <a href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{widget._id}}"><span class="pull-right glyphicon glyphicon-cog"></span></a>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div ng-include src="model.getWidgetIncludeUrl(widget.widgetType)"></div>
+    </div>
+</div>
