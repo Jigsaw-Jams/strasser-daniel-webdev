@@ -11,33 +11,34 @@
 
 
 <div class="container-fluid">
+    <div ng-show="model.errorMessage" class="alert alert-warning"> <strong>{{model.errorMessage}}</strong> </div>
 
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click="model.createNewWidget('HEADING')">Heading</a>
+                    <a ng-click="model.createWidget('HEADING')">Heading</a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click="model.createNewWidget('HTML')">HTML</a>
+                    <a ng-click="model.createWidget('HTML')">HTML</a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click="model.createNewWidget('IMAGE')">Image</a>
+                    <a ng-click="model.createWidget('IMAGE')">Image</a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-12">
-                    <a ng-click="model.createNewWidget('YOUTUBE')">YouTube</a>
+                    <a ng-click="model.createWidget('YOUTUBE')">YouTube</a>
                 </div>
             </div>
         </li>

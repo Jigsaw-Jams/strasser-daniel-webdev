@@ -10,8 +10,14 @@
         model.pid = $routeParams["pid"];
 
         function init() {
-            model.website = WebsiteService.findWebsiteById(model.wid);
-            model.pages = PageService.findPagesByWebsiteId(model.wid);
+            WebsiteService.findWebsiteById(model.wid)
+                .then(function (response) {
+                    model.website = response.data;
+                });
+            PageService.findPagesByWebsiteId(model.wid)
+                .then(function  (response) {
+                    model.pages = response.data;
+                })
         }
         init();
 

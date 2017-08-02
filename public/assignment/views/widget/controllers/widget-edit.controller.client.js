@@ -13,25 +13,30 @@
         model.deleteWidget= deleteWidget;
 
         function init() {
-            model.widget = WidgetService.findWidgetById(model.wgid);
+            WidgetService.findWidgetById(model.wgid)
+                .then(function (response) {
+                    model.widget = response.data;
+                });
         }
         init();
 
         function updateWidget (widget) {
-            _widget = WidgetService.findWidgetById(model.wgid);
-
-            if (_widget) { //update an existing widget
-                var new_widget = WidgetService.updateWidget(model.wgid, widget);
-                console.log('updated');
-                console.log(new_widget)
-                $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/' + model.pid + '/widget/');
-            } else {
-                console.log('yarg');
-            }
+            WidgetService.updateWidget(model.wgid, widget)
+                .then(function (response) {
+                    model.successMessage = "The widget was updated successfully!";
+                }, function (rejection) {
+                    model.errorMessage = "Sorry an error was encountered and your widget was not updated. Please try again";
+                });
         }
 
         function deleteWidget() {
-            WidgetService.deleteWidget(model.wgid);
+            WidgetService.deleteWidget(model.wgid)
+                .then(function (response) {
+                    console.log('asdf');
+                    $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/' + model.pid + '/widget/');
+                }, function (rejection) {
+                    model.errorMessage = "Sorry an error was encountered and your widget was not deleted. Please try again";
+                });
         }
     }
 

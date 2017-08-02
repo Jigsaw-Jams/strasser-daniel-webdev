@@ -12,25 +12,36 @@
 
 
         function init() {
-            model.website = WebsiteService.findWebsiteById(model.wid);
-            model.websites = WebsiteService.findWebsitesByUser(model.userId);
+            WebsiteService.findWebsiteById(model.wid)
+                .then(function (response) {
+                    model.website = response.data;
+                });
+            WebsiteService.findWebsitesByUser(model.userId)
+                .then(function (response) {
+                    model.websites = response.data;
+                });
         }
         init();
 
-        /**
-         * Update the current website to match the definition of @website
-         */
         function updateWebsite(website) {
-            WebsiteService.updateWebsite(model.wid, website);
-            $location.url("/user/" + model.userId + "/website/" + model.wid);
+            WebsiteService.updateWebsite(model.wid, website)
+                .then(function (response) {
+                    console.log('og tb');
+                    console.log(model.userId);
+                    console.log(model.wid);
+                    $location.url("/user/" + model.userId + "/website/");
+                }, function (rejection) {
+                    model.errorMessage = "Sorry an error was encountered and your website was not updated. Please try again";
+                });
         }
 
-        /**
-         * Delete the current website.
-         */
         function deleteWebsite() {
-            WebsiteService.deleteWebsite(model.wid);
-            $location.url("/user/" + model.userId + "/website/");
+            WebsiteService.deleteWebsite(model.wid)
+                .then(function (response) {
+                    $location.url("/user/" + model.userId + "/website/");
+                }, function (rejection) {
+                    model.errorMessage = "Sorry an error was encountered and your website was not deleted. Please try again";
+                });
         }
     }
 

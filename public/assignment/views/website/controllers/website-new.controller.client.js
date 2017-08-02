@@ -10,14 +10,20 @@
         model.createWebsite = createWebsite;
 
         function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.userId);
+            WebsiteService.findWebsitesByUser(model.userId)
+                .then(function (response) {
+                    model.websites = response.data;
+                });
         }
         init();
 
         function createWebsite(website) {
-            console.log(website);
-            WebsiteService.createWebsite(model.userId, website);
-            $location.url('/user/' + model.userId + '/website');
+            WebsiteService.createWebsite(model.userId, website)
+                .then(function (response) {
+                    $location.url('/user/' + model.userId + '/website');
+                }, function (rejection) {
+                    model.errorMessage = "Sorry an error was encountered and your website was not created. Please try again";
+                });
         }
     }
 

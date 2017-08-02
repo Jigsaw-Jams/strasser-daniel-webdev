@@ -9,7 +9,11 @@
         model.wid = $routeParams["wid"];
 
         function init() {
-            model.websites = WebsiteService.findWebsitesByUser(model.userId);
+            // model.websites = WebsiteService.findWebsitesByUser(model.userId);
+            WebsiteService.findWebsitesByUser(model.userId)
+                .then(function (response) {
+                    model.websites = response.data;
+                })
         }
         init();
     }

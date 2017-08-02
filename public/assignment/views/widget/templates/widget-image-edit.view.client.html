@@ -2,7 +2,8 @@
     <div class="col-xs-12">
         <div class="form-group">
             <label for="image-name">Name:</label>
-            <input value="Image Widget"
+            <input ng-model="model.widget.name"
+                   placeholder="Name of Widget"
                    type="text"
                    class="form-control"
                    id="image-name"
@@ -10,7 +11,7 @@
         </div>
         <div class="form-group">
             <label for="image-text">Text:</label>
-            <input value="Image widget text"
+            <input placeholder="Text describing widget."
                    type="text"
                    class="form-control"
                    id="image-text"

@@ -14,7 +14,10 @@
         model.getWidgetIncludeUrl = getWidgetIncludeUrl;
 
         function init() {
-            model.widgets = WidgetService.findWidgetsByPageId(model.pid);
+            WidgetService.findWidgetsByPageId(model.pid)
+                .then(function (response) {
+                    model.widgets = response.data;
+                })
         }
         init();
 
@@ -22,7 +25,6 @@
          * Is this url safe to display within an iframe? If so return the safe embeddable youtube url
          */
         function trustUrlResource(url) {
-            console.log(url);
             var youtubeEmbedUrl = "https://www.youtube.com/embed/";
             var urlParts = url.split("/");
             // get just the unique video identifier and append it to the embed url

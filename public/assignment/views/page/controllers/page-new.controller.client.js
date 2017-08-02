@@ -11,13 +11,17 @@
         model.createPage = createPage;
 
         function init() {
-            model.pages = PageService.findPagesByWebsiteId(model.wid);
+            //TODO: split layout?; model.pages = PageService.findPagesByWebsiteId(model.wid);
         }
         init();
 
         function createPage(page) {
-            var p = PageService.createPage(model.wid, page);
-            $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/');
+            PageService.createPage(model.wid, page)
+                .then(function (response) {
+                    $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/');
+                }, function (rejection) {
+                    model.errorMessage = "Sorry an error was encountered and your page was not created. Please try again";
+                });
         }
 
     }

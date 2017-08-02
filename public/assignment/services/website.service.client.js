@@ -30,14 +30,14 @@
             return $http.get(url);
         }
 
-
         function updateWebsite(websiteId, website) {
-            var url = 'test';
+            var url = "/api/v1/website/" + websiteId;
+            return $http.put(url, website);
         }
 
-
         function deleteWebsite(websiteId) {
-
+            var url = "/api/v1/website/" + websiteId;
+            return $http.delete(url);
         }
     }
 })();

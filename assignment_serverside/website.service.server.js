@@ -20,50 +20,70 @@ app.delete("/api/v1/website/:websiteId", deleteWebsite);
 
 
 function createWebsite(req, res) {
-    website._id = (new Date()).getTime() + "";
-    website.developerId = userId;
-    websites.push(website);
-    return website;
+    var newWebsite = req.body;
+    var userId = req.params.userId;
+    newWebsite._id = (new Date()).getTime() + "";
+    newWebsite.developerId = userId;
+    websites.push(newWebsite);
+    res.send(newWebsite);
 }
 
-function findWebsiteByUser(req, res) {
-    var users_websites = [];
+function findWebsitesByUser(req, res) {
+    var userWebsites = [];
+    var userId = req.params.userId;
+
     for (var w in websites) {
-        var _website = websites[w];
-        if(_website.developerId === userId) {
-            users_websites.push(_website);
+        if(websites[w].developerId === userId) {
+            userWebsites.push(websites[w]);
         }
     }
-    return users_websites;
+
+    res.send(userWebsites);
 }
 
 function findWebsiteById(req, res) {
+    var websiteId = req.params.websiteId;
+
     for (var w in websites) {
-        var _website = websites[w];
-        if(_website._id === websiteId) {
-            return _website;
+        if(websites[w]._id === websiteId) {
+            res.send(websites[w]);
+            return;
         }
     }
-    return null;
+
+    res.sendStatus(404);
 }
 
 function updateWebsite(req, res) {
+    console.log('call recvd');
+    var updatedWebsite = req.body;
+    console.log(updatedWebsite);
+    var websiteId = req.params.websiteId;
+
     for (var w in websites) {
-        var _website = websites[w];
-        if(_website._id === websiteId) {
-            _website = website;
-            return _website;
+        if(websites[w]._id === websiteId) {
+            console.log('match found');
+            websites[w] = updatedWebsite;
+            console.log(websites[w]);
+            res.send(websites[w]);
+            return;
         }
     }
-    return null;
+
+    res.sendStatus(404);
 }
 
 function deleteWebsite(req, res) {
+    console.log('call recvd');
+    var websiteId = req.params.websiteId;
+
     for (var w in websites) {
-        var _website = websites[w];
-        if(_website._id === websiteId) {
+        if(websites[w]._id === websiteId) {
             websites.splice(w, 1); // remove the wth element from the users array
+            res.sendStatus(200);
+            return;
         }
     }
-    return null
+
+    res.sendStatus(404);
 }
