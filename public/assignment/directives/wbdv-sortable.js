@@ -18,22 +18,19 @@
 
             widgetList.sortable({
                 start: function(event, ui) {
+                    $('#sortme').height($('#sortme').height());
                     initialIndex = $(ui.item).index();
+                    $(ui.item).addClass("panel-info");
                 },
                 stop: function(event, ui) {
                     finalIndex = $(ui.item).index();
-
-                    console.log([initialIndex, finalIndex]);
+                    $(ui.item).removeClass("panel-info");
 
                     WidgetService.reorderWidget(pid, initialIndex, finalIndex)
-                        .then(function (response){
-                            console.log('yay');
-                            console.log(response);
-                        })
+                        .then(function (response){})
 
                 }
             });
-
         }
 
         return {
