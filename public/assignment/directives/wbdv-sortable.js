@@ -1,28 +1,36 @@
 (function () {
     angular
         .module("wbdvDirectives", [])
-        .directive("widgetList", widgetListDirective); //html doesnt have case sensitive tags  // CAMEL CASE THINGS ARE MAPPED to item-list
+        .directive("widgetList", widgetListDirective); //html doesn't have case sensitive tags  // CAMEL CASE THINGS ARE MAPPED to item-list
 
 
-    console.log('zzzz');
-    function widgetListDirective($http) {
+    function widgetListDirective($http, $routeParams, WidgetService) {
+        var pid = $routeParams['pid'];
+
         function linkFunction(scope, element) {
             console.log(element);
 
             //negatives to confirm actions success or failure
-            var startIndex = -1;
-            var endIndex = -1;
+            var initialIndex = -1;
+            var finalIndex = -1;
 
-            var widgetList = element.find('ul');
+            var widgetList = element.find('div');
 
             widgetList.sortable({
                 start: function(event, ui) {
-                    startIndex = $(ui.item).index();
+                    initialIndex = $(ui.item).index();
                 },
                 stop: function(event, ui) {
-                    endIndex = $(ui.item).index();
-                    console.log([startIndex, endIndex]);
-                    //$http.put("/api/widget/123?start=" + startIndex + "&end=" + endIndex)
+                    finalIndex = $(ui.item).index();
+
+                    console.log([initialIndex, finalIndex]);
+
+                    WidgetService.reorderWidget(pid, initialIndex, finalIndex)
+                        .then(function (response){
+                            console.log('yay');
+                            console.log(response);
+                        })
+
                 }
             });
 

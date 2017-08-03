@@ -14,9 +14,10 @@ var widgets = [
 // API Endpoints and their corresponding functions //
 app.post(  "/api/v1/page/:pageId/widget", createWidget);
 app.get(   "/api/v1/page/:pageId/widget", findWidgetsByPageId);
-app.get(   "/api/v1/widget/:widgetId", findWidgetById);
-app.put(   "/api/v1/widget/:widgetId", updateWidget);
-app.delete("/api/v1/widget/:widgetId", deleteWidget);
+app.get(   "/api/v1/widget/:widgetId",    findWidgetById);
+app.put(   "/api/v1/widget/:widgetId",    updateWidget);
+app.delete("/api/v1/widget/:widgetId",    deleteWidget);
+app.put(   "/api/v1/page/:pageId/widget", reorderWidget);
 
 
 function createWidget(req, res) {
@@ -48,7 +49,7 @@ function findWidgetById(req, res) {
     for (var w in widgets) {
         if(widgets[w]._id === widgetId) {
             res.send(widgets[w]);
-            return
+            return;
         }
     }
 
@@ -63,6 +64,7 @@ function updateWidget(req, res) {
         if(widgets[w]._id === widgetId) {
             widgets[w] = updatedWidget;
             res.send(widgets[w]);
+            return;
         }
     }
 
@@ -81,4 +83,24 @@ function deleteWidget(req, res) {
     }
 
     res.sendStatus(404);
+}
+
+function reorderWidget(req, res) {
+    var initial = req.query.initial;
+    var final = req.query.final;
+
+    // if the widget hasn't moved just return
+    if (initial === final) {
+        res.sendStatus(200);
+        return;
+    }
+
+    var temp = widgets[initial];
+
+    // index, number of elements to remove
+    widgets.splice(initial, 1);
+    // index, number of elements to remove, element to insert
+    widgets.splice(final, 0, temp);
+
+    res.sendStatus(200);
 }
