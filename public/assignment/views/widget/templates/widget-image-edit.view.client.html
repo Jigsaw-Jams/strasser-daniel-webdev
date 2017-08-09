@@ -19,12 +19,18 @@
         </div>
         <div class="form-group">
             <label for="image-url">URL:</label>
-            <input ng-model="model.widget.url"
-                   type="text"
-                   class="form-control"
-                   id="image-url"
-                   name="image-url">
+            <div class="input-group">
+                <input ng-model="model.widget.url"
+                       type="text"
+                       class="form-control"
+                       id="image-url"
+                       name="image-url">
+                <span class="input-group-btn">
+                    <a class="btn btn-info" href="#!/user/{{model.userId}}/website/{{model.wid}}/page/{{model.pid}}/widget/{{model.wgid}}/flickr_search">Search Flickr for url</a>
+                </span>
+            </div>
         </div>
+
         <div class="form-group">
             <label for="image-width">Width:</label>
             <input ng-model="model.widget.width"
