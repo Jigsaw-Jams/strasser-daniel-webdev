@@ -38,7 +38,7 @@ function findUserByCredentials(username, password) {
 
 // Updates user instance whose _id is equal to parameter userId
 function updateUser(userId, user) {
-    return userModel.update({_id: userId}, {$set: user.username});
+    return userModel.update({_id: userId}, {$set: user});
 }
 
 // Removes user instance whose _id is equal to parameter userId
