@@ -28,8 +28,9 @@
         function updateUser(user) {
             UserService.updateUser(model.userId, user)
                 .then(function (response) {
-                    var updatedUser = response.data;
-                    $rootScope.currentUser = updatedUser;
+                    // var updatedUser = response.data;
+                    // $rootScope.currentUser = updatedUser;
+                    // console.log(updatedUser);
                     model.successMessage = "Profile Updated Successfully!";
                 },    function (rejection) {
                     model.errorMessage = "Sorry an error was encountered and your profile was not updated. Please try again";
@@ -42,13 +43,13 @@
         function deleteUser() {
             UserService.deleteUser(model.userId)
                 .then(function (response) {
+                    console.log(response);
                     if (response.status == 200) {
                         $location.url('/login');
                     }
                 }, function (rejection) {
                     model.errorMessage = "Sorry an error was encountered and your profile was not deleted. Please try again";
-                    }
-                )
+                });
         }
 
     }
