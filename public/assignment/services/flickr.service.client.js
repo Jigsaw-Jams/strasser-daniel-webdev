@@ -4,8 +4,13 @@
         .factory("FlickrService", FlickrService);
 
     function FlickrService($http) {
-        var key = process.env.FLICKR_API_KEY;
-        var secret = process.env.FLICKR_API_SECRET;
+        if (process.env.FLICKR_API_KEY) {
+            var key = process.env.FLICKR_API_KEY;
+        } else {
+            // I want to remove this but it seems like there is no good way if I need it on the client.
+            // I could have an additonal api method that returns this key, but the client still gets the key at some point.
+            var key = '6c0f5b2a4579a402fcb7523e2460256b';
+        };
 
         var api = {
             "searchPhotos" : searchPhotos
