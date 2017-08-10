@@ -1,12 +1,12 @@
 var app = require("../../express");
 var userModel = require("../model/user/user.model.server");
 
-var users = [
-    {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-    {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-    {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-    {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-];
+// var users = [
+//     {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
+//     {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
+//     {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
+//     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
+// ];
 
 // API Endpoints and their corresponding functions //
 // app.get("/api/v1/user", findUserByUsername); This is in the assignment spec, but can't actually exist...
@@ -66,7 +66,6 @@ function findUserByCredentials(req, res) {
 // Find a user by their associated userId
 function findUserById(req, res) {
     var userId = req.params.userId;
-
     userModel
         .findUserById(userId)
         .then(function (user) {

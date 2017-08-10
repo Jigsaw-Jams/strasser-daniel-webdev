@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+
 var userSchema = mongoose.Schema(
     {
         username: String,
@@ -7,7 +8,7 @@ var userSchema = mongoose.Schema(
         lastName: String,
         email: String,
         phone: String,
-        website: [{type: mongoose.Schema.Types.ObjectId, ref: "WebsiteModel"}],
+        websites: [{type: mongoose.Schema.Types.ObjectId, ref: "WebsiteModel"}],
         dateCreated: {type: Date, default: Date.now}
     },
     {collection: "user"} // Explicitly declare the collection name.

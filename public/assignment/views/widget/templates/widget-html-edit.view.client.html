@@ -10,12 +10,21 @@
                    name="html-name">
         </div>
         <div class="form-group">
-            <label for="html-text">Text:</label>
-            <input ng-model="model.widget.text"
-                   type="text"
-                   class="form-control"
-                   id="html-text"
-                   name="html-text">
+            <label for="html-text">Content:</label>
+            <div ng-model="model.widget.text"
+                 text-angular
+                 id="html-text"
+                 ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],
+        ['ul','ol'],['justifyLeft','justifyCenter','justifyRight','justifyFull'],
+        ['indent','outdent'],['html']]">
+            </div>
+
+            <!--<label for="html-text">Cont:</label>-->
+            <!--<input ng-model="model.widget.text"-->
+                   <!--type="text"-->
+                   <!--class="form-control"-->
+                   <!--id="html-text"-->
+                   <!--name="html-text">-->
         </div>
     </div>
 </div>

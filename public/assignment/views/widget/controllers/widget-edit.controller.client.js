@@ -30,9 +30,8 @@
         }
 
         function deleteWidget() {
-            WidgetService.deleteWidget(model.wgid)
+            WidgetService.deleteWidget(model.wgid, model.pid)
                 .then(function (response) {
-                    console.log('asdf');
                     $location.url('/user/' + model.userId + '/website/' + model.wid + '/page/' + model.pid + '/widget/');
                 }, function (rejection) {
                     model.errorMessage = "Sorry an error was encountered and your widget was not deleted. Please try again";

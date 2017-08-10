@@ -10,6 +10,8 @@ userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
+userModel.addWebsite = addWebsite;
+userModel.removeWebsite = removeWebsite;
 module.exports = userModel;
 
 
@@ -20,19 +22,19 @@ function createUser(user) {
 
 // Retrieves a user instance whose _id is equal to parameter userId
 function findUserById(userId) {
-    console.log('find user by id');
-    return userModel.findById(userId);
+    return userModel
+        .findById(userId)
+        .populate('websites', 'name')
+        .exec(); // populate the websites array with only the name of the website
 }
 
 // Retrieves a user instance whose username is equal to parameter username
 function findUserByUsername(username) {
-    console.log('username');
     return userModel.findOne({username: username});
 }
 
 // Retrieves a user instance whose username and password are equal to parameters userId and password
 function findUserByCredentials(username, password) {
-    console.log('credentials');
     return userModel.findOne({username: username, password: password});
 }
 
@@ -44,4 +46,27 @@ function updateUser(userId, user) {
 // Removes user instance whose _id is equal to parameter userId
 function deleteUser(userId) {
     return userModel.remove({_id: userId});
+}
+
+// remove websites from belonging to this user
+function removeWebsite(userId, websiteId) {
+    return userModel
+        .findUserById(userId)
+        .then(function (user) {
+            var index = user.websites.indexOf(websiteId);
+            // remove the website from the websites reference array
+            user.websites.splice(index, 1);
+            return user.save();
+        })
+}
+
+// add website belonging to this user
+function addWebsite(userId, websiteId) {
+    return userModel
+        .findUserById(userId)
+        .then(function (user) {
+            // add the website to the websites reference array
+            user.websites.push(websiteId);
+            return user.save();
+        });
 }
