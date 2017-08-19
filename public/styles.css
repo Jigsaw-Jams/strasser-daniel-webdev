@@ -1,0 +1,36 @@
+html, body{
+    height: 100%;
+}
+
+body { 
+    background-image: url(http://i.imgur.com/DpXeunW.jpg);
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-color: #999;
+    
+}
+
+.navbar {
+    background-color: transparent !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    color: #fff !important;
+}
+ 
+
+.nav.navbar-nav.navbar-right li a, h1, h3, h4, h5 {
+    color: #fff;
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
+.dark a{
+    color: black !important;
+}
+a {
+    color: #fff;
+}

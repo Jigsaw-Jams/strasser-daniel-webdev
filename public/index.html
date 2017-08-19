@@ -3,17 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Web Dev Course Home Page</title>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+
 </head>
 <body>
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Daniel Strasser CS4550
+            </a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul ng-hide="navbarModel.currentUser" class="nav navbar-nav navbar-right">
+                <li>
+                    <a type="button" href="https://cointrac.herokuapp.com/">CoinTrac (Project)</a>
+                </li>
+                <li>
+                    <a type="button" href="assignment/">Assignment</a>
+                </li>    
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Repos <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dark">
+                            <a href="https://github.com/jigsaw-jams/webdev-project">Project GitHub Repo</a>
+                        </li>
+                        <li class="dark">
+                            <a href="https://github.com/jigsaw-jams/strasser-daniel-webdev">Assignment GitHub Repo</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+
+            <ul ng-show="navbarModel.currentUser" class="nav navbar-nav navbar-right">
+            </ul>
+                </li>
+            </ul>
+        </div> <!-- /collapse -->
+
+    </div><!-- / container -->
+</nav>
+
+    
 <div class="container text-center">
-    <h1>Daniel Strasser CS4550 Home Page</h1>
-
-
 
     <!--<p>-->
         <!--This is your website's home page. Your home page should have a picture of yourself, link to your assignments,-->
@@ -22,33 +74,14 @@
         <!--spectacular. You should feel proud to share your homepage with your potential employer.-->
         <!--I should feel proud to share your homepage with my colleagues.-->
     <!--</p>-->
-    <hr>
-    <h2>Links of Interest</h2>
-    <div class="btn-group" role="group" aria-label="...">
-        <a class="btn btn-default btn-info" href="https://cointrac.herokuapp.com/">Project</a>
-        <a class="btn btn-default btn-info" href="assignment/">Assignment</a>
-        <a class="btn btn-default btn-info" href="https://github.com/jigsaw-jams/strasser-daniel-webdev">Assignment GitHub Repo</a>
-        <a class="btn btn-default btn-info" href="https://github.com/jigsaw-jams/webdev-project">Project GitHub Repo</a>
-    </div>
 
+        <h1 class="text-center"> This is my assignment home page for CS4550  </h1>
 
-    <!--<ul>-->
-        <!--<li>-->
-            <!--<a href="project/index.html">Project</a>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<a href="assignment/">Assignment</a>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<a href="test/index.html">Test MongoDB</a>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<a href="https://github.com/jigsaw-jams/strasser-daniel-webdev">GitHub Repo</a>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<a href="/lectures">Lectures</a>-->
-        <!--</li>-->
-    <!--</ul>-->
+        <hr>
+
+        <h4 class="text-center">* The <a type="button" href="https://cointrac.herokuapp.com/">CoinTrac</a> link will bring you to my final project which is hosted on Heroku. It is a micro crypto currency portfolio manager.</h4> 
+        <h4 class="text-center">* The <a type="button" href="assignment/">Assignment</a> link will bring you to the work i've done in class which is also hosted on Heroku.</h4> 
+
 </div>
 </body>
 </html>
