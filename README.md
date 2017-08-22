@@ -6,7 +6,7 @@ This repository contains all of my work for CS4550:
 
 ### Links
 * [Heroku](https://strasser-daniel-webdev.herokuapp.com/) - A landing page with links to assignments and other points of interest is hosted on Heroku
-* [Project](https://mighty-dawn-52528.herokuapp.com/#!/) - The final project (Work In Progress)
+* [Project](https://cointrac.herokuapp.com/#!/) - The final project (Work In Progress)
 * [Assignment](https://strasser-daniel-webdev.herokuapp.com/assignment/#!) - The in class assignment.
 
 
